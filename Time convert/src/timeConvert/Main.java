@@ -5,6 +5,8 @@
 package timeConvert;
 
 
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
@@ -32,6 +34,10 @@ public class Main {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setResizable(false);
 		window.setVisible(true);
+		
+		ImageIcon icon = new ImageIcon("src/res/icon.jpg");
+		window.setIconImage(icon.getImage());
+		
 		
 		JPanel mainpnl = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		window.add(mainpnl);
