@@ -5,12 +5,16 @@
 package timeConvert;
 
 
+import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -37,6 +41,35 @@ public class Main {
 		JFormattedTextField dateinp = new JFormattedTextField(df.format(date));
 		mainpnl.add(dateinpl);
 		mainpnl.add(dateinp);
+		
+		JLabel tzl = new JLabel("Convert Timezone");
+		mainpnl.add(tzl);
+		
+		JTextField timezonei = new JTextField();
+		timezonei.setColumns(5);
+		mainpnl.add(timezonei);
+		
+		JLabel outputl = new JLabel("Output:");
+		mainpnl.add(outputl);
+		
+		JLabel output = new JLabel("");
+		mainpnl.add(output);
+		
+		JButton verify = new JButton();
+		verify.setText("Submit");
+		verify.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				boolean valid = DateValidate.test(dateinp.getText());
+				if(valid == true) {
+					String preconvert, postconvert;
+					preconvert = dateinp.getText();
+					postconvert = DateConvert.convert(preconvert, timezonei.getText());
+					output.setText(postconvert);
+					window.pack();
+				}
+			}
+		});
+		mainpnl.add(verify);
 		
 		window.pack();
 		
