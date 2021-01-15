@@ -1,4 +1,4 @@
-# JavaTimeZoneConverter
+# Java Time Zone Converter
 This is a small Java program to convert time from one time zone to another.
 
 How to use:
