@@ -6,6 +6,7 @@ package timeConvert;
 
 
 
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
@@ -42,9 +43,13 @@ public class Main {
 		JPanel mainpnl = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		window.add(mainpnl);
 		
+		BoxLayout layout = new BoxLayout(mainpnl, BoxLayout.Y_AXIS);
+		mainpnl.setLayout(layout);
+		JLabel dateformat = new JLabel("Format is MM-DD-YYYY HH:MM(A/PM) Time zone");
 		JLabel dateinpl = new JLabel("Enter date and time");
 		
 		JFormattedTextField dateinp = new JFormattedTextField(df.format(date));
+		mainpnl.add(dateformat);
 		mainpnl.add(dateinpl);
 		mainpnl.add(dateinp);
 		
